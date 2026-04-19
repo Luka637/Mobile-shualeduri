@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Shualeduri</string>
+    <!-- Strings extracted from fragment_a.xml to resolve hardcoded string warnings -->
+    <string name="hint_salary">Salary</string>
+    <string name="hint_rent">Rent</string>
+    <string name="hint_meals">Meals</string>
+    <string name="btn_calculate">Calculate</string>
+</resources>
