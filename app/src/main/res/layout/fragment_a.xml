@@ -5,77 +5,145 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:padding="16dp"
     tools:context=".FragmentA">
-    <!-- ეს ზემოთ რომ activity_main.xml-ში გამოვაჩინოთ სტუდიოში -->
 
-    <!-- ID-ებზე ინიციალები არის სახელი და გვარის ოღონდ ინგლისური (Luka Tchikadze) -->
-    <!--პირველი რიცხვის ჩასაწერი (ხელფასი)-->
-    <EditText
-        android:id="@+id/lt_edit_salary"
+    <!-- ეს CardView ქმნის მომრგვალებულ მწვანე საზღვარს -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lt_card_border"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="@string/hint_salary"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/lt_edit_rent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <!-- მეორე ჩასაწერი ქირისთის -->
-    <EditText
-        android:id="@+id/lt_edit_rent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:hint="@string/hint_rent"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/lt_edit_meals"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lt_edit_salary" />
-
-    <!-- და ჩასაწერი მესამე კვებისთვის-->
-    <EditText
-        android:id="@+id/lt_edit_meals"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:hint="@string/hint_meals"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/lt_btn_calculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lt_edit_rent" />
-
-    <!-- ღილაკი რომელიც შეასრულებს კალკულაციებს-->
-    <Button
-        android:id="@+id/lt_btn_calculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:minHeight="48dp"
-        android:text="@string/btn_calculate"
-        android:textColor="@android:color/black"
+        android:layout_height="0dp"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lt_edit_meals" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@android:color/holo_green_dark"
+        app:strokeWidth="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="24dp">
+
+            <!-- სათაური -->
+            <TextView
+                android:id="@+id/lt_txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Finance Manager"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/lt_layout_salary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <!-- ხელფასის ჩასაწერი -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lt_layout_salary"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:hint="@string/hint_salary"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@android:color/holo_green_dark"
+                app:hintTextColor="@android:color/holo_green_dark"
+                app:layout_constraintBottom_toTopOf="@+id/lt_layout_rent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lt_txt_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lt_edit_salary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ქირის ჩასაწერი -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lt_layout_rent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_rent"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@android:color/holo_green_dark"
+                app:hintTextColor="@android:color/holo_green_dark"
+                app:layout_constraintBottom_toTopOf="@+id/lt_layout_meals"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lt_layout_salary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lt_edit_rent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- კვების ჩასაწერი -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lt_layout_meals"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_meals"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@android:color/holo_green_dark"
+                app:hintTextColor="@android:color/holo_green_dark"
+                app:layout_constraintBottom_toTopOf="@+id/lt_btn_calculate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lt_layout_rent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lt_edit_meals"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- კალკულაციის ღილაკი -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lt_btn_calculate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:minHeight="56dp"
+                android:text="@string/btn_calculate"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lt_layout_meals" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

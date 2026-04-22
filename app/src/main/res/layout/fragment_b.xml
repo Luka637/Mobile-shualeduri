@@ -5,38 +5,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:padding="16dp">
+    tools:context=".FragmentB">
 
-    <!-- კიდევ დავწერ, ID-ებზე ინიციალები არის სახელი და გვარის ოღონდ ინგლისური (Luka Tchikadze) -->
-    <!-- აქ გამოჩნდება კალკულაციის შედეგები შესაბამისი ფერით (თავიდან ნულებია, მაგრამ შეიცვლება კალკულაციის შემდეგ )   -->
-    <TextView
-        android:id="@+id/lt_txt_result"
+    <!-- აქაც ეს CardView ქმნის მომრგვალებულ მწვანე საზღვარს -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lt_card_border_b"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/lt_txt_identity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Salary: 0.0\nRent: 0.0\nMeals: 0.0\nSavings: 0.0\nTotal Expenses: 0.0\nRemaining: 0.0" />
-
-    <!-- აქ დავალების პირობის მიხედვით Name, Last Name, Year შეიცვლება კოტლინ კოდიდან ჩემი ნამდვილით (ინგლისურად) -->
-    <TextView
-        android:id="@+id/lt_txt_identity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
+        android:layout_height="0dp"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lt_txt_result"
-        tools:text="Name, Last Name, Year" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@android:color/holo_green_dark"
+        app:strokeWidth="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="24dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/lt_card_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#F8F9F9"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/lt_card_identity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <TextView
+                    android:id="@+id/lt_txt_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:padding="24dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Salary: 0.0\nRent: 0.0\nMeals: 0.0\nSavings (11%): 0.0\nTotal Expenses: 0.0\nRemaining: 0.0" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/lt_card_identity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#F8F9F9"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/lt_btn_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lt_card_result">
+
+                <TextView
+                    android:id="@+id/lt_txt_identity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    tools:text="Luka Tchikadze, 2006" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- უკან დაბრუნების ღილაკი -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lt_btn_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:minHeight="56dp"
+                android:text="Back"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lt_card_identity" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

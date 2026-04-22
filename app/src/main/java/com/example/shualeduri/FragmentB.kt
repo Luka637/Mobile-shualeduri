@@ -71,6 +71,11 @@ class FragmentB : Fragment() {
 
         // ეს დროებით რაც გვაქვს ფრაგმენტ ბ-ში იმას შეცვლის ნამდვილი მნიშვნელობებით (სახელი, გვარი, წელი)
         binding.ltTxtIdentity.text = "$firstName $lastName, $yearOfBirth"
+
+        // დავამატოთ უკან დაბრუნების ფუნქცია ღილაკზე
+        binding.ltBtnBack.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
     }
 
     override fun onDestroyView() {
