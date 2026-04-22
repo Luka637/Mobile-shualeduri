@@ -51,7 +51,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="Salary: 0.0\nRent: 0.0\nMeals: 0.0\nSavings (11%): 0.0\nTotal Expenses: 0.0\nRemaining: 0.0" />
+                    tools:text="Salary: 0.0\nRent: 0.0\nMeals: 0.0\nTotal Expenses: 0.0\nSavings (11%): 0.0\nRemaining: 0.0" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView

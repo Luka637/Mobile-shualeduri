@@ -51,8 +51,8 @@ class FragmentB : Fragment() {
             Salary: ${financeModel.salary}
             Rent: ${financeModel.rent}
             Meals: ${financeModel.meals}
-            Savings (11%): $savings
             Total Expenses: $expenses
+            Savings (11%): $savings
             Remaining: $remaining
         """.trimIndent()
 
